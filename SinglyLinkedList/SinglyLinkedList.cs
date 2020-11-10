@@ -1,19 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections;
-
+using System;
 
 namespace DataStructuresImplementation.SinglyLinkedList
 {
     class SinglyLinkedList<T> : IEnumerable<T>
     {
-        private Node<T> head;   // First element
-        private Node<T> tail;   // Last element
+        private SinglyNode<T> head;   // First element
+        private SinglyNode<T> tail;   // Last element
         private int count;
 
-        public T First { get => head.Value; }
-        
-        public T Last { get => tail.Value; }
+        public T First
+        {
+            get
+            {
+                if (!IsEmpty)
+                    return head.Value;
+                else
+                    throw new InvalidOperationException("List is empty");
+            }
+        }
+
+        public T Last
+        {
+            get
+            {
+                if (!IsEmpty)
+                    return tail.Value;
+                else
+                    throw new InvalidOperationException("List is empty");
+            }
+        }
 
         public int Count { get => count; }
 
@@ -29,7 +46,7 @@ namespace DataStructuresImplementation.SinglyLinkedList
 
         public void Add(T value)
         {
-            Node<T> newNode = new Node<T>(value);
+            SinglyNode<T> newNode = new SinglyNode<T>(value);
 
             if (head == null)
                 head = newNode;
@@ -42,7 +59,7 @@ namespace DataStructuresImplementation.SinglyLinkedList
 
         public void AppendFirst(T value)
         {
-            Node<T> newNode = new Node<T>(value);
+            SinglyNode<T> newNode = new SinglyNode<T>(value);
             newNode.Next = head;
             head = newNode;
 
@@ -54,8 +71,8 @@ namespace DataStructuresImplementation.SinglyLinkedList
 
         public bool Remove(T value)
         {
-            Node<T> current = head;
-            Node<T> previous = null;
+            SinglyNode<T> current = head;
+            SinglyNode<T> previous = null;
 
             while (current != null)
             {
@@ -86,9 +103,9 @@ namespace DataStructuresImplementation.SinglyLinkedList
 
         public bool Contains(T value)
         {
-            Node<T> current = head;
+            SinglyNode<T> current = head;
 
-            while(current != null)
+            while (current != null)
             {
                 if (current.Value.Equals(value))
                     return true;
@@ -98,12 +115,12 @@ namespace DataStructuresImplementation.SinglyLinkedList
         }
 
         #region IEnumarable interface implementation 
-        
+
         IEnumerator IEnumerable.GetEnumerator() => ((IEnumerable)this).GetEnumerator();
 
         IEnumerator<T> IEnumerable<T>.GetEnumerator()
         {
-            Node<T> current = head;
+            SinglyNode<T> current = head;
 
             while (current != null)
             {

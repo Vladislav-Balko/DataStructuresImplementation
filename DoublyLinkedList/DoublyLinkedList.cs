@@ -10,9 +10,27 @@ namespace DataStructuresImplementation.DoublyLinkedList
         DoublyNode<T> tail;
         int count;
 
-        public T First { get => head.Value; }
+        public T First 
+        {
+            get
+            {
+                if (!IsEmpty)
+                    return head.Value;
+                else
+                    throw new InvalidOperationException("List is empty");
+            }
+        }
 
-        public T Last { get => tail.Value; }
+        public T Last
+        {
+            get
+            {
+                if (!IsEmpty)
+                    return tail.Value;
+                else
+                    throw new InvalidOperationException("List is empty");
+            }
+        }
 
         public bool IsEmpty { get => count == 0; }
 

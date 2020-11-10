@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructuresImplementation.ArrayBasedStacks
 {
@@ -52,8 +48,6 @@ namespace DataStructuresImplementation.ArrayBasedStacks
 
 
         public T Peek() => items[count - 1]; // Returns the object at the top of the stack without removing it.
-
-
 
     }
 }

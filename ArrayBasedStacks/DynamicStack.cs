@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataStructuresImplementation.ArrayBasedStacks
 {
@@ -11,7 +7,7 @@ namespace DataStructuresImplementation.ArrayBasedStacks
     /// The length of the array under the hood is increased / decreased in parts by 10 items 
     /// to achieve a compromise between memory usage and perfomance.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The element type of the stack</typeparam>
     class DynamicStack<T>
     {
         private T[] items;
