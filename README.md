@@ -1,1 +1,11 @@
-Simplified own implementation of fundamental data structures in C#/.NET.
+Simplified own implementation of fundamental data structures using C#/.NET:
+
+- linked lists(singly, doubly, circular singly, circular doubly);
+
+- array based stacks(fixed-size, dynamic);
+
+- linked list based stack;
+
+- queue;
+
+- deque;
